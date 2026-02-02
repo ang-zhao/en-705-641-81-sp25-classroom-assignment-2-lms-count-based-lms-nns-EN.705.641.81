@@ -13,7 +13,7 @@ $$ppl(w_1, \dots, w_n) = P(w_1, w_2, \dots, w_n)^{-\frac{1}{n}}= n\sqrt{\prod_{i
 
 The H term in the equation above is the cross-entropy loss between our language model probabilities and the (empirical) real language probabilities. Hence, minimizing perplexity is equivalent to minizing cross-entropy.
 
-4. For a vocabulary of $|V|$ words, if the predictions were completely random, we would expect perplexity to be $|V|$. For $|V|=2000$, perplexity is $2000$ and cross-entropy is $log(2000) \approx 7.60$ and for $|V|=2000$, perplexity is $10000$ and cross-entropy is $log(2000) \approx 9.21$.
+4. For a vocabulary of $|V|$ words, if the predictions were completely random, we would expect perplexity to be $|V|$. For $|V|=2000$, perplexity is $2000$ and cross-entropy is $log(2000) \approx 7.60$ and for $|V|=2000$, perplexity is $10000$ and cross-entropy is $log(10000) \approx 9.21$.
 
 5. Selections 1,3,4. 
 6. Selection 2.
