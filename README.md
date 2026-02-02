@@ -32,7 +32,7 @@ Author: Angela Zhao
 
 │ ├── solution_files/
 
-│ ├── solution.pdf (Typed answers to Problems 1-5, 6.1.4, 6.1.5, 6.2.4)
+│ ├── **solution.pdf (Typed answers to Problems 1-5, 6.1.4, 6.1.5, 6.2.4)**
 
 │ └── solution.md
 
