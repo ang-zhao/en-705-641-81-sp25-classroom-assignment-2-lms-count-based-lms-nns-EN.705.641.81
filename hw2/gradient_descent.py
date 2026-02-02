@@ -130,7 +130,7 @@ class SentimentClassifier(nn.Module):
         # - grads_weights: a tensor of shape (num_classes, embed_dim) that is the gradient of linear layer's weights
         # - grads_bias: a tensor of shape (num_classes,) that is the gradient of linear layer's bias
         # - loss: a scalar that is the cross entropy loss, averaged over the batch
-        preds = self.softmax(logits) 
+        preds = SentimentClassifier.softmax(logits) 
         true = torch.zeros_like(preds)
         true[torch.arange(bsz), labels] = 1 # one-hot encoding
         bias = preds - true
