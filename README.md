@@ -4,10 +4,8 @@ Author: Angela Zhao
 
 ./hw2/
 
-│ ├── basics.py
-
 │ ├── ngram_context1.png (output of main.py)
-
+cd ..
 │ ├── ngram_context2.png (output of main.py)
 
 │ ├── gradient_descent_loss.png (output of main.py)
