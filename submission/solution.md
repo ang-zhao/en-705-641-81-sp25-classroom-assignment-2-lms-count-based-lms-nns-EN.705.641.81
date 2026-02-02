@@ -84,7 +84,7 @@ x_2 x_3 \cos(x_1 x_2 x_3) & x_1 x_3 \cos(x_1 x_2 x_3) & x_1 x_2 \cos(x_1 x_2 x_3
 $$\mathbf{J}(1, \pi, 0) = \begin{bmatrix} 
 0 & 0 & \pi \\
 0 & 0 & 0 \\
-0 & 0 & -0.5
+0 & 0 & 0
 \end{bmatrix}$$
 
 ## 3 n-gram Language Models
