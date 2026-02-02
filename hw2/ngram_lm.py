@@ -48,7 +48,7 @@ def create_ngrams(data, n, splitter, tokenizer):
 
             # TODO: tokenize the words in the sentence
             # name the list of tokens as 'tokens'
-
+            tokens = tokenizer.tokenize(sentence)
             # Your code ends here
 
             # drop short sentences
@@ -66,7 +66,9 @@ def create_ngrams(data, n, splitter, tokenizer):
                 #   and its occurrence count as values
                 # - 'next_word_candidates' is a dictionary with tuple of the context
                 #   (i.e. the (n-1)-grams) as keys and a set of possible next words as values
-
+                ngrams[tuple(tokens[idx:idx+n])] += 1
+                ngram_context[tuple(tokens[idx:idx+n-1])] += 1
+                next_word_candidates[tuple(tokens[idx:idx+n-1])].add(tokens[idx+n-1])
                 # Your code ends here
 
     # Sort all the next word candidates
@@ -86,7 +88,7 @@ def create_ngrams(data, n, splitter, tokenizer):
         for nw in next_words:
             # TODO: compute the estimated probability of the next word given the context
             # hint: use the counters 'ngrams' and 'ngram_context' you have created above
-
+            scores.append(ngrams[context + (nw,)] / ngram_context[context])
             # Your code ends here
 
         # record the most probable next word as the prediction
@@ -118,7 +120,21 @@ def plot_next_word_prob(word_scores, word_candidates, context, top=10, save_path
     # - word_candidates is a dictionary with tuple of the context as keys and a list of possible next words as values (the sorted_next_word_candidates in create_ngrams function)
     # - for a given context, elements in word_scores[context] and word_candidates[context] have one-to-one correspondence
     # - context is a tuple of words
+    top_idx = np.argsort(word_scores[context])[-top:][::-1]
+    top_words = np.array(word_candidates[context])[top_idx]
 
+    plt.figure(figsize=(10, 6))
+    plt.bar(top_words, top_idx)
+    plt.xlabel('Next Word Candidates')
+    plt.ylabel('Estimated Probability')
+    plt.title(f'Top {top} Next Word Probabilities for Context: {" ".join(context)}')
+    plt.xticks(rotation=45) 
+    
+    if save_path:
+        plt.savefig(save_path)
+    else:
+        plt.tight_layout()
+        plt.show()
 
     # Your code ends here
 
