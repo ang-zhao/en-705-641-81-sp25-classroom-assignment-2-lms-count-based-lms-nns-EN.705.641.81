@@ -122,9 +122,10 @@ def plot_next_word_prob(word_scores, word_candidates, context, top=10, save_path
     # - context is a tuple of words
     top_idx = np.argsort(word_scores[context])[-top:][::-1]
     top_words = np.array(word_candidates[context])[top_idx]
-
+    scores = word_scores[context][top_idx]
+    
     plt.figure(figsize=(10, 6))
-    plt.bar(top_words, top_idx)
+    plt.bar(top_words, scores)
     plt.xlabel('Next Word Candidates')
     plt.ylabel('Estimated Probability')
     plt.title(f'Top {top} Next Word Probabilities for Context: {" ".join(context)}')
